@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Code &amp; Learn at Node Interactive Europe 2016</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Code &amp; Learn at Node Interactive Europe 2016
+
+---
+
+# Core repository:
+https://github.com/nodejs/node
+
+<img src="nodejs_node.png" alt="Node Core on Github" style="width:100%;" />
+
+---
+
+# Setup
+
+- You need: A Github account, Git, Python, a compiler
+- Fork `nodejs/node`
+- Clone your fork
+
+---
+
+# General structure:
+
+- `deps/` — Dependencies (V8, libuv, zlib, etc.)
+- `doc/api/` – The API documentation (aka https://nodejs.org/api/)
+- `lib/` – JS source files (everything that can be `require()`d)
+- `src/` – C++ source files
+- `test/parallel/` – (Almost all) Tests!
+
+---
+
+# Guides for contributing
+
+- `CONTRIBUTING.md` – General contributing guide
+- `doc/guides/writing_tests.md` – Helpful when writing new tests!
+
+---
+
+# Wait for cloning to finish
+
+---
+
+# Compiling
+
+```console
+$ ./configure
+$ make -j4
+$ ./node
+> process.version
+'v7.0.0-pre'
+```
+
+(Windows: `vcbuild nosign`)
+
+---
+
+# Building the docs
+
+```console
+$ make doc # or
+$ make doc-only
+```
+
+→ Output in `out/doc/api`
+
+---
+
+# Testing your changes
+
+```console
+$ make -j4 test
+```
+
+(Windows: `vcbuild test`)
+
+---
+
+class: center, middle
+
+# Go!
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
