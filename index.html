@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Code &amp; Learn at Node Interactive Europe 2016</title>
+    <title>Code &amp; Learn at Node Interactive North America 2016</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -21,7 +21,9 @@
 
 class: center, middle
 
-# Code &amp; Learn at Node Interactive Europe 2016
+# Code &amp; Learn at Node Interactive North America 2016
+
+Your first pull request to Node.js core
 
 ---
 
@@ -29,6 +31,35 @@ class: center, middle
 https://github.com/nodejs/node
 
 <img src="nodejs_node.png" alt="Node Core on Github" style="width:100%;" />
+
+---
+
+# Lifecycle of a PR, part I
+
+Before you open a pull request:
+
+- Get the necessary tools if you don’t already have
+- Do the changes you want to make
+- Build node and make sure all tests still pass
+- Commit the changes
+
+---
+
+# Lifecycle of a PR, part II
+
+After you open a pull request:
+
+- You will probably receive comments from reviewers
+  - Address them by adding new commits or amending existing ones
+- There is no automated CI, it will be kicked off manually by a collaborator
+  - This may take a bit of time, there are only so many machines available
+  - Infrastructure hiccups are not uncommon but most CI runs are mostly green
+    these days
+- At least one Node.js core collaborator has to sign off on the pull request,
+  by commenting “LGTM” and/or using Github’s review feature
+- There’s a minimum waiting period of 48/72 hours for non-trivial changes
+- Just in case: If there is no movement on a PR for a few days, feel free to
+  bump it
 
 ---
 
@@ -53,7 +84,9 @@ https://github.com/nodejs/node
 # Guides for contributing
 
 - `CONTRIBUTING.md` – General contributing guide
-- `doc/guides/writing_tests.md` – Helpful when writing new tests!
+  - Explains how a commit message should look like
+- `doc/guides/writing_tests.md` – Especially helpful when writing new tests!
+- `test/README.md` – Explains the `common` API used in our tests
 
 ---
 
@@ -65,10 +98,10 @@ https://github.com/nodejs/node
 
 ```console
 $ ./configure
-$ make -j4
+$ make -j8 # Use -jN if your machine has N cores
 $ ./node
 > process.version
-'v7.0.0-pre'
+'v8.0.0-pre'
 ```
 
 (Windows: `vcbuild nosign`)
@@ -78,8 +111,8 @@ $ ./node
 # Building the docs
 
 ```console
-$ make doc # or
-$ make doc-only
+$ make doc-only # or
+$ make doc
 ```
 
 → Output in `out/doc/api`
@@ -89,7 +122,7 @@ $ make doc-only
 # Testing your changes
 
 ```console
-$ make -j4 test
+$ make -j8 test
 ```
 
 (Windows: `vcbuild test`)
