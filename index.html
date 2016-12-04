@@ -39,6 +39,7 @@ https://github.com/nodejs/node
 Before you open a pull request:
 
 - Get the necessary tools if you don’t already have
+- Make sure git knows your name/email (if you want that)
 - Do the changes you want to make
 - Build node and make sure all tests still pass
 - Commit the changes
@@ -87,6 +88,18 @@ After you open a pull request:
   - Explains how a commit message should look like
 - `doc/guides/writing_tests.md` – Especially helpful when writing new tests!
 - `test/README.md` – Explains the `common` API used in our tests
+
+---
+
+# Setting your git email/name
+
+Make sure git knows the name and email address you want to have listed in the
+git log, `AUTHORS` file, etc.:
+
+```text
+$ git config --global user.name "J. Random User"
+$ git config --global user.email "j.random.user@example.com"
+```
 
 ---
 
